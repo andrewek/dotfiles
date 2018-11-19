@@ -1,0 +1,6 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =4
+let g:netrw_dirhist_1='/Users/aek/PaymentSpring/gateway/code/merchant-dashboard/app/controllers/api/v1/plans'
+let g:netrw_dirhist_2='/Users/aek/PaymentSpring/gateway/code/globosphere/lib/globosphere'
+let g:netrw_dirhist_3='/Users/aek/code/budgerigar/spec/operations/allocations/create_spec.rb'
+let g:netrw_dirhist_4='/Users/aek/PaymentSpring/gateway/code/transaction-rails/app/clients/cc/sierra'
