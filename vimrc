@@ -49,7 +49,7 @@ set t_vb=
 set tm=500
 
 " Add a bit extra margin to the left
-set foldcolumn=1
+set foldcolumn=2
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Colors and Fonts
@@ -58,7 +58,7 @@ set foldcolumn=1
 syntax enable
 
 try
-    colorscheme smyck
+    colorscheme pulumi
 catch
 endtry
 
@@ -86,15 +86,15 @@ set expandtab
 " Be smart when using tabs ;)
 set smarttab
 
-" 1 tab == 2 spaces
 set shiftwidth=2
 set tabstop=2
 
 set ai "Auto indent
 set si "Smart indent
-set nu
 set laststatus=2
 set tw=80
+
+set number
 
 """"""""""""""""""""""""""""""
 " => Visual mode related
@@ -120,6 +120,10 @@ map <leader>ss :setlocal spell!<cr>
 "Use proper syntax highlighting for markdown files
 au BufNewFile,BufFilePre,BufRead *.md,*.markdown set ft=markdown
 
+"Format .jbuilder as Ruby
+au BufNewFile,BufRead *.json.jbuilder set ft=ruby
+
+" Highlight line-final whitespace
 highlight ExtraWhitespace ctermbg=red guibg=red
 match ExtraWhitespace /\s\+$/
 autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
@@ -127,6 +131,7 @@ autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
 autocmd InsertLeave * match ExtraWhitespace /\s\+$/
 autocmd BufWinLeave * call clearmatches()
 
+" Trim line-final whitespace and empty lines at the end of a file
 function! TrimWhiteSpace()
   %s/\s\+$//e
 endfunction
