@@ -123,6 +123,11 @@ au BufNewFile,BufFilePre,BufRead *.md,*.markdown set ft=markdown
 "Format .jbuilder as Ruby
 au BufNewFile,BufRead *.json.jbuilder set ft=ruby
 
+"Elixir
+au BufRead,BufNewFile *.ex,*.exs set filetype=elixir
+au BufRead,BufNewFile *.eex,*.heex,*.leex,*.sface,*.lexs set filetype=eelixir
+au BufRead,BufNewFile mix.lock set filetype=elixir
+
 " Highlight line-final whitespace
 highlight ExtraWhitespace ctermbg=red guibg=red
 match ExtraWhitespace /\s\+$/
@@ -136,3 +141,6 @@ function! TrimWhiteSpace()
   %s/\s\+$//e
 endfunction
 autocmd BufWritePre     * :call TrimWhiteSpace()
+
+" Syntax-highlight within markdown code blocks
+let g:markdown_fenced_languages = ['html', 'ruby', 'elixir', 'javascript']
